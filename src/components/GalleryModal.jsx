@@ -80,7 +80,9 @@ const GalleryModal = ({ onClose, modelId }) => {
         </div>
 
         <div className="flex justify-center">
-          <SquareButton className="w-full md:w-auto">Cerrar</SquareButton>
+          <SquareButton className="w-full md:w-auto" onClick={onClose}>
+            Cerrar
+          </SquareButton>
         </div>
       </div>
 

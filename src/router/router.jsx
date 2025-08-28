@@ -22,6 +22,10 @@ export const router = createBrowserRouter([
         path: "cross",
         element: <Form modelId="cross" />,
       },
+      {
+        path: "suv",
+        element: <Form modelId="suv" />,
+      }
     ],
   },
 ]);

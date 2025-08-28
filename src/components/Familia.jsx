@@ -13,33 +13,29 @@ const Familia = () => {
   return (
     <section className=" mx-auto px-4 py-10  md:p-20 bg-[#F5F5F5]">
       <div className=" ">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 ">
           {/* Left Content - Text Section */}
-          <div className="flex flex-col justify-start">
-            <h4 className="font-normal text-gray-600 mb-4">Familia K3</h4>
-            <h2 className="font-semibold text-[#04141F] mb-6">
-              Conocé el All-new K3 Cross y Sedán
+          <div className="flex flex-col ">
+            <h4 className="font-normal text-gray-600 mb-4">Nueva Sportage</h4>
+            <h2 className="font-[600] text-[#04141F] mb-6">
+              La nueva forma de moverte con inspiración
             </h2>
             <hr className="w-full border-[#04141F]/20 mb-8" />
 
             <div className="space-y-4 text-gray-700">
               <p className="text-base leading-relaxed">
-                El All-new K3 encarna la nueva filosofía de Kia con un carácter
-                de alta tecnología en su diseño agresivo y una personalidad
-                potente, convirtiéndolo único en su segmento.
+                Una silueta elegante y robusta, con parrilla distintiva y faros LED de última generación que le dan carácter único. Cada detalle está pensado para destacar en la ciudad y en la ruta.
               </p>
               <p className="text-base leading-relaxed font-bold">
-                Elegí la silueta de tu interés, su versión y color y un
-                Concesionario Kia te va a estar brindando más información a la
-                brevedad.
+                Elegí la silueta de tu interés, su versión y color y un Concesionario Kia te va a estar brindando más información a la brevedad.
               </p>
             </div>
           </div>
 
           {/* Right Content - Vehicle Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-1 gap-6 m-auto">
             {autos.map((vehiculo, index) => (
-              <div key={index} className="text-center rounded-lg p-2 md:p-6">
+              <div key={index} className="text-center rounded-lg p-2 md:p-6 max-w-80">
                 {/* Vehicle Image */}
                 <div className="mb-4">
                   <img
@@ -55,7 +51,7 @@ const Familia = () => {
                 </h3>
 
                 {/* Price */}
-                <div className="mb-6 text-gray-600">{vehiculo.precio}</div>
+                <div className="mb-3 text-gray-600">{vehiculo.precio}</div>
 
                 {/* Consultar Precios Button */}
                 <div className="w-full flex justify-center">

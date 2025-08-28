@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import Stepper from "../components/Stepper";
 import Step from "../components/ui/Step";
 import CarImages from "../components/CarImages";
@@ -6,6 +6,7 @@ import Navbar from "../components/Navbar";
 import CompletedFormBanner from "../components/ui/CompletedFormBanner";
 import { autos } from "../data/autos";
 import SquareButton from "../components/ui/SquareButton";
+import { data } from "react-router-dom";
 
 export default function Form({ modelId }) {
   const [currentStep, setCurrentStep] = useState(modelId === "sedan" ? 3 : 2);
@@ -16,6 +17,7 @@ export default function Form({ modelId }) {
   const [step2Data, setStep2Data] = useState({});
   const [step4Data, setStep4Data] = useState({});
   const [step5Data, setStep5Data] = useState({});
+
 
   useEffect(() => {
     setModel(autos.find((auto) => auto.id === modelId));
@@ -98,7 +100,7 @@ export default function Form({ modelId }) {
         {/* Main Content */}
         <main className="container mx-auto md:px-4 py-10 md:py-20">
           {/* Page Title */}
-          <h1 className="font-bold mb-8">Personalizá tu Kia K3 Cross</h1>
+          <h1 className="font-bold mb-8">Personalizá tu Nueva Spotage</h1>
 
           {/* Stepper */}
           <Stepper

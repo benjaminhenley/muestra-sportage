@@ -17,12 +17,10 @@ const Gallery = ({ onImageClick }) => {
       <div className=" mx-auto">
         <h4 className="mb-2 md:mb-3">Características destacadas</h4>
         <h2 className="font-bold mb-4 md:mb-5">
-          Una nueva era en diseño y tecnología
+          Diseño que impone y atrae
         </h2>
         <h5 className="mb-8 md:mb-16">
-          La familia All-new K3 se impone con un diseño audaz, interior refinado
-          y la tecnología más avanzada del segmento. Creado para inspirar cada
-          movimiento, dentro y fuera de la ciudad.
+          La nueva Kia Sportage combina diseño audaz, tecnología avanzada y confort superior para elevar tu experiencia de manejo. No es solo un SUV: es inspiración en movimiento.
         </h5>
 
         {/* Mobile Slider View */}
@@ -43,11 +41,13 @@ const Gallery = ({ onImageClick }) => {
               </div>
               <div className="h-full w-full overflow-hidden row-span-1 flex flex-row">
                 {[1, 2, 3].map((i) => (
-                  <GalleryImage
-                    key={i}
-                    image={images[i]}
-                    onImageClick={onImageClick}
-                  />
+                  <div key={i} className="flex-1 h-full overflow-hidden">
+                    <GalleryImage
+                      image={images[i]}
+                      onImageClick={onImageClick}
+                      className="h-full w-full object-cover"
+                    />
+                  </div>
                 ))}
               </div>
             </div>

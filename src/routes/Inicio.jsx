@@ -1,4 +1,4 @@
-import HomeSlider from "../components/HomeSlider";
+import {HomeBanner} from "../components/HomeBanner";
 import VehiculoCard from "../components/VehiculoCard";
 import Familia from "../components/Familia";
 import Gallery from "../components/Gallery";
@@ -25,7 +25,7 @@ export default function Inicio() {
   return (
     <>
       <Navbar />
-      <HomeSlider />
+      <HomeBanner />
       <Familia />
       <Gallery onImageClick={openModal} />
 

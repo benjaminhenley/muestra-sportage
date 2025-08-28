@@ -13,71 +13,70 @@ export const images = [
       desktop: image1,
       mobile: image1,
     },
-    alt: "Auto andando",
-    modalTitle: "Confort pensado al detalle",
-    modalDescription:
-      "El All-new K3 es innovador y confortable. Kia reinterpretó la selección y concentración de todos los elementos de diseño de una manera funcional.",
+    alt: "Kia Sportage en movimiento por carretera",
+    modalTitle: "Video de Kia Sportage en movimiento por carretera",
+    modalDescription:"",
   },
   {
     src: {
       desktop: image2,
       mobile: image2,
     },
-    alt: "Parallell exit",
+    alt: "Vista trasera de Kia Sportage mostrando faros LED",
     modalDescription:
-      "Kia DriveWise: Asistencia de pre-colisión en punto ciego + tráfico cruzado trasera",
+      "Faros LED traseros con diseño envolvente que aportan mayor visibilidad y seguridad",
   },
   {
     src: {
       desktop: image3,
       mobile: image3,
     },
-    alt: "Lane Following assist",
+    alt: "Frente de Kia Sportage con parrilla y faros LED verticales",
     modalDescription:
-      "Kia DriveWise: Asistencia de seguimiento y mantenimiento del carril",
+      "Faros LED de proyección con diseño vertical y nueva parrilla frontal con patrón distintivo",
   },
   {
     src: {
       desktop: image4,
       mobile: image4,
     },
-    alt: "Forward Collision Avoidance Assist",
+    alt: "Perfil lateral de Kia Sportage resaltando silueta audaz",
     modalDescription:
-      "Kia DriveWise: Asistencia de pre-colisión frontal + luces altas automáticas",
+      "Silueta audaz y refinada redefine lo que significa un SUV moderno",
   },
   {
     src: {
       desktop: image5,
       mobile: image5,
     },
-    alt: "Panel",
+    alt: "Interior de Kia Sportage mostrando panel y cargador inalámbrico",
     modalDescription:
-      "Infotainment full LCD 10,25' con Apple CarPlay y AndroidAuto inalámbrico",
+      "Carga USB inalámbrica",
   },
   {
     src: {
       desktop: image6,
       mobile: image6,
     },
-    alt: "Radio",
-    modalDescription: "Climatizador automático Bi-Zona",
+    alt: "Pantalla doble panorámica y radio en Kia Sportage",
+    modalDescription: "Doble pantalla panorámica de 12,3”, conectividad Android Auto™ y Apple CarPlay™ inalámbricos",
   },
   {
     src: {
       desktop: image7,
       mobile: image7,
     },
-    alt: "Motor",
+    alt: "Baúl de Kia Sportage con apertura eléctrica inteligente",
     modalDescription:
-      "Motor 1.6 MPI (121hp / 151Nm) + Transmisión automática de seis marchas",
+      "Capacidad del baúl 503/1789 VDA LTS. (2° FILA / 1° FILA) con apertura eléctrica inteligente",
   },
   {
     src: {
       desktop: image8,
       mobile: image8,
     },
-    alt: "Latin NCAP",
+    alt: "Detalle de transmisión automática de Kia Sportage",
     modalDescription:
-      "Calificación de cinco estrellas de seguridad en Latin NCAP",
+      "Transmisión automática de 8 marchas",
   },
 ];

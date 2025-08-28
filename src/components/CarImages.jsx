@@ -48,10 +48,8 @@ const CarImages = ({ currentColor, modelId }) => {
       <div className="flex flex-col pt-5  md:flex-row gap-5 md:gap-10">
         {/* Disclaimer */}
         <h6 className=" text-[#05141F] font-light">
-          *Las imágenes son meramente referenciales todo el equipamiento varía
-          según versión. Los colores mostrados son colores referenciales
-          disponibles del modelo, la disponibilidad de los mismos va depender
-          del stock. Su tonalidad puede variar en la unidad física.
+          *Las imágenes son meramente referenciales todo el equipamiento varía según versión. Los colores mostrados son colores referenciales disponibles del modelo, la disponibilidad de los mismos va depender del stock. 
+          Su tonalidad puede variar en la unidad física.
         </h6>
         <div>
           <PillButton

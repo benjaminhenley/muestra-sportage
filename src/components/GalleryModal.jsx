@@ -12,32 +12,19 @@ const toImageObjects = (sortedEntries) =>
   }));
 
 const useGalleryImages = (modelId) => {
-  // Import general gallery images
-  const generalImages = useMemo(() => {
-    const modules = import.meta.glob("../assets/images/gallery/*.webp", {
-      eager: true,
-      import: "default",
-    });
-    return toImageObjects(sortByPath(Object.entries(modules)));
-  }, []);
 
   // Import model-specific images (shown on top)
   const modelImages = useMemo(() => {
-    const sedanModules = import.meta.glob(
-      "../assets/images/galleryModel/sedan-*.webp",
+    const sportageModules = import.meta.glob(
+      "../assets/images/galleryModel/sportage-*.webp",
       { eager: true, import: "default" }
     );
-    const crossModules = import.meta.glob(
-      "../assets/images/galleryModel/cross-*.webp",
-      { eager: true, import: "default" }
-    );
-    const modules = modelId === "sedan" ? sedanModules : crossModules;
-    return toImageObjects(sortByPath(Object.entries(modules)));
+    return toImageObjects(sortByPath(Object.entries(sportageModules)));
   }, [modelId]);
 
   return useMemo(
-    () => [...modelImages, ...generalImages],
-    [modelImages, generalImages]
+    () => [...modelImages],
+    [modelImages]
   );
 };
 
@@ -59,7 +46,7 @@ const GalleryModal = ({ onClose, modelId }) => {
         onClick={(e) => e.stopPropagation()}>
         <section className="bg-white  flex-shrink-0">
           <h3 className="mb-3">
-            K3 {modelId.charAt(0).toUpperCase() + modelId.slice(1)}
+            Nueva {modelId.charAt(0).toUpperCase() + modelId.slice(1)}
           </h3>
           <h2 className="font-bold">Galería de Imágenes</h2>
         </section>
@@ -67,7 +54,7 @@ const GalleryModal = ({ onClose, modelId }) => {
         <div className="flex-1 overflow-y-auto  pt-0">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
             {images.map((image, idx) => (
-              <div key={idx} className="w-full aspect-[16/9] overflow-hidden">
+              <div key={idx} className="w-full overflow-hidden">
                 <img
                   src={image.src.desktop}
                   alt={image.alt}

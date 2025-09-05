@@ -44,14 +44,20 @@ const Step = ({
     fetchConcesionarios();
   }, []);
 
-  console.log("concesionarias:", concesionarios);
+  const concesionariosList = concesionarios?.concesionarios ?? [];
+  // console.log("Lista de concesionarios:", concesionariosList);
+
+  const opciones = concesionariosList
+  .map((concesionario) =>( {
+    label: concesionario.direccion.trim(),
+    value: concesionario.codigo.trim()
+  }))
+  .filter((option) => option.label && option.value) 
+  .sort((a, b) => a.label.localeCompare(b.label, "es"))
+  ;
+  console.log("opciones:", opciones);
 
 
-const direcciones = (concesionarios?.concesionarios ?? [])
-  .map(c => c?.direccion?.trim())
-  .filter(Boolean);
-
-  const opciones = direcciones.map(d => ({ label: d, value: d }));
 
   const renderStepContent = () => {
     switch (currentStep) {

@@ -7,7 +7,7 @@ const ImageModal = ({ image, onClose }) => {
       onClick={onClose}
     >
       <div
-        className="relative mx-auto flex flex-col bg-white overflow-hidden min-w-[700px] max-w-[90vw] max-h-[98vh]"
+        className="relative mx-auto flex flex-col bg-white overflow-hidden min-w-[max-content] max-w-[90vw] max-h-[98vh]"
         onClick={(e) => e.stopPropagation()} 
       >
         <button
@@ -19,11 +19,11 @@ const ImageModal = ({ image, onClose }) => {
           X
         </button>
 
-        <div className="bg-white">
+        <div className="bg-white max-w-[50vw]">
           <img
             src={image.src.desktop}
             alt={image.alt}
-            className="w-full h-auto object-contain max-h-[80vh]"
+            className="w-full h-auto object-contain max-w-[50vw]"
           />
           {image.modalDescription && image.modalDescription !== "" && (
             <div className="p-6">

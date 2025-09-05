@@ -15,16 +15,8 @@ export const router = createBrowserRouter([
         element: <Inicio />,
       },
       {
-        path: "sedan",
-        element: <Form modelId="sedan" />,
-      },
-      {
-        path: "cross",
-        element: <Form modelId="cross" />,
-      },
-      {
-        path: "suv",
-        element: <Form modelId="suv" />,
+        path: "sportage",
+        element: <Form modelId="sportage" />,
       }
     ],
   },

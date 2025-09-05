@@ -28,10 +28,10 @@ const estados = [
   { value: "Malo", label: "Malo" },
 ];
 
-const concesionarios = [
-  { value: "Concesionario 1", label: "Concesionario 1" },
-  { value: "Concesionario 2", label: "Concesionario 2" },
-  { value: "Concesionario 3", label: "Concesionario 3" },
-];
+// const concesionarios = [
+//   { value: "Concesionario 1", label: "Concesionario 1" },
+//   { value: "Concesionario 2", label: "Concesionario 2" },
+//   { value: "Concesionario 3", label: "Concesionario 3" },
+// ];
 
-export { estados, kilometrajes, años, marcas, concesionarios };
+export { estados, kilometrajes, años, marcas };

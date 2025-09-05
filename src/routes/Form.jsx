@@ -9,7 +9,7 @@ import SquareButton from "../components/ui/SquareButton";
 import { data } from "react-router-dom";
 
 export default function Form({ modelId }) {
-  const [currentStep, setCurrentStep] = useState(modelId === "sedan" ? 3 : 2);
+  const [currentStep, setCurrentStep] = useState(modelId === "sportage" ? 3 : 2);
   const [model, setModel] = useState(autos.find((auto) => auto.id === modelId));
   const [currentColor, setCurrentColor] = useState(model.colors[0]);
   const [isCompleted, setIsCompleted] = useState(false);
@@ -53,7 +53,10 @@ export default function Form({ modelId }) {
     };
 
     try {
-      console.log("Sending data to API:", JSON.stringify(JSON.parse(formData)));
+      console.log(
+        "Sending data to API (json):",
+        JSON.stringify(formData, null, 2)
+      );
 
       setName(step5Data.nombre);
       setIsCompleted(true);
@@ -93,6 +96,7 @@ export default function Form({ modelId }) {
     }
   };
 
+  // console.log("step5Data:", step5Data);
   return (
     <section className="w-full  min-h-screen">
       <Navbar black />
@@ -135,7 +139,7 @@ export default function Form({ modelId }) {
                 />
                 {/* Action Buttons */}
                 <div className="hidden md:flex justify-start gap-2.5 mt-10  items-end">
-                  <SquareButton onClick={handleCancel} type="secondary">
+                  <SquareButton onClick={handleCancel} type="secondary" disabled={currentStep === 2}>
                     Cancelar
                   </SquareButton>
                   <SquareButton

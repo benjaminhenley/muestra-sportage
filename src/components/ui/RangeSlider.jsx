@@ -1,4 +1,3 @@
-// RangeSlider.tsx
 import React from "react";
 
 export default function RangeSlider({
@@ -55,7 +54,7 @@ export default function RangeSlider({
         ))}
       </div>
       {/* local CSS for pseudo-elements that Tailwind can't reach */}
-      <style jsx>{`
+      <style>{`
         .slider {
           /* make sure the thumb isn't clipped */
         }

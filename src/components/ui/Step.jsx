@@ -55,7 +55,7 @@ const Step = ({
   .filter((option) => option.label && option.value) 
   .sort((a, b) => a.label.localeCompare(b.label, "es"))
   ;
-  console.log("opciones:", opciones);
+  // console.log("opciones:", opciones);
 
 
 

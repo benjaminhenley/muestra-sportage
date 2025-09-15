@@ -1,8 +1,8 @@
 import SportageSUV  from "../assets/images/SportageSUV.webp"; 
-// import { suvImagesByColor } from "./suvSliderImages";
+
+import { sportageImagesByColor } from "./sportageSliderImages";
 
 
-import { crossImagesByColor } from "./crossSliderImages";
 
 export const autos = [
   {
@@ -14,7 +14,7 @@ export const autos = [
     esExterna: false,
     esNuevo: true,
     foto: SportageSUV,
-    colors: crossImagesByColor, 
+    colors:sportageImagesByColor, 
     precio: (
       <>
         <p className="text-sm font-bold py-0.5">

@@ -1,5 +1,5 @@
-import logoWhite from "../assets/kiaWhite.svg";
-import logoBlack from "../assets/kiaBlack.svg";
+import logoWhite from "../assets/KiaWhite.svg";
+import logoBlack from "../assets/KiaBlack.svg";
 
 export default function Navbar({ black }) {
   return (

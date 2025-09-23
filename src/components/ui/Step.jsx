@@ -3,12 +3,7 @@ import SquareButton from "./SquareButton";
 import FormDropdown from "./form/FormDropdown";
 import TextField from "./form/TextField";
 import PillButton from "./PillButton";
-import {
-  marcas,
-  estados,
-  kilometrajes,
-  años,
-} from "../../data/formData";
+import { marcas, estados, kilometrajes, años } from "../../data/formData";
 import Checkbox from "./form/Checkbox";
 
 const Step = ({
@@ -24,40 +19,33 @@ const Step = ({
   step5Data,
   setCurrentStep,
 }) => {
-  const [concesionarios, setConcesionarios] = useState([]);
+  const [provincias, setProvincias] = useState([]);
 
   useEffect(() => {
-    const fetchConcesionarios = async () => {
+    async function fetchProvincias() {
       try {
-        const response = await fetch("https://fusio.encender-dev.online/public/kia/concesionarios");
-        if (!response.ok) {
-          throw new Error("Network response was not ok");
-        }
+        const provinceArray = await fetch(
+          "https://fusio.encender-dev.online/public/kia/zonas-subgeneraciones"
+        ).then((data) => {
+          return data.json();
+        });
 
-        const data = await response.json();
-        setConcesionarios(data);
+        const mappedProvinces = provinceArray.zonas.map((province) => {
+          return {
+            value: province.subgeneracion,
+            label: province.nombreProvincia,
+          };
+        });
 
-      } catch (error) {
-        console.error("Error fetching concesionarios:", error);
+        setProvincias(mappedProvinces);
+      } catch (e) {
+        console.log(e);
+        return;
       }
-    };
-    fetchConcesionarios();
+    }
+
+    fetchProvincias();
   }, []);
-
-  const concesionariosList = concesionarios?.concesionarios ?? [];
-  // console.log("Lista de concesionarios:", concesionariosList);
-
-  const opciones = concesionariosList
-  .map((concesionario) =>( {
-    label: concesionario.direccion.trim(),
-    value: concesionario.codigo.trim()
-  }))
-  .filter((option) => option.label && option.value) 
-  .sort((a, b) => a.label.localeCompare(b.label, "es"))
-  ;
-  // console.log("opciones:", opciones);
-
-
 
   const renderStepContent = () => {
     switch (currentStep) {
@@ -74,10 +62,11 @@ const Step = ({
             </div>
             <div className="flex flex-col gap-5">
               <div
-                className={`flex justify-between items-center  p-4 bg-[#F8F8F8] cursor-pointer ${step2Data.version === "EX"
-                  ? "border-2 border-[#05141F]"
-                  : "border border-[#CDD0D2]"
-                  }`}
+                className={`flex justify-between items-center  p-4 bg-[#F8F8F8] cursor-pointer ${
+                  step2Data.version === "EX"
+                    ? "border-2 border-[#05141F]"
+                    : "border border-[#CDD0D2]"
+                }`}
                 onClick={() => setStep2Data({ version: "EX" })}>
                 <h5 className="font-semibold">EX 1.6T 4x2 DCT</h5>
                 <h6 className="text-[#05141F] font-regular">
@@ -85,10 +74,11 @@ const Step = ({
                 </h6>
               </div>
               <div
-                className={`flex justify-between items-center border p-4 bg-[#F8F8F8] cursor-pointer ${step2Data.version === "X-LINE"
-                  ? "border-2 border-[#05141F]"
-                  : "border border-[#CDD0D2]"
-                  }`}
+                className={`flex justify-between items-center border p-4 bg-[#F8F8F8] cursor-pointer ${
+                  step2Data.version === "X-LINE"
+                    ? "border-2 border-[#05141F]"
+                    : "border border-[#CDD0D2]"
+                }`}
                 onClick={() => setStep2Data({ version: "X-LINE" })}>
                 <h5 className="font-semibold">X-Line 1.6T AWD DCT</h5>
                 <h6 className="text-[#05141F] font-regular">
@@ -127,8 +117,9 @@ const Step = ({
                     <button
                       key={colorItem.id}
                       onClick={() => colorChange(colorItem.id)}
-                      className={`relative  w-fit group transition-transform duration-200 ${isActive ? "scale-[1.3] z-10" : ""
-                        } `}
+                      className={`relative  w-fit group transition-transform duration-200 ${
+                        isActive ? "scale-[1.3] z-10" : ""
+                      } `}
                       aria-label={colorItem.name || ""}>
                       {/* Main color circle */}
                       <div
@@ -311,16 +302,16 @@ const Step = ({
 
                 <div className="md:col-span-2">
                   <FormDropdown
-                    name="concesionario"
-                    value={step5Data.concesionario}
+                    name="provincias"
+                    value={step5Data.provincia}
                     onChange={(e) =>
                       setStep5Data({
                         ...step5Data,
-                        concesionario: e.target.value,
+                        provincia: e.target.value,
                       })
                     }
-                    options={opciones}
-                    placeholder="Buscá tu concesionario"
+                    options={provincias}
+                    placeholder="Buscá tu provincia"
                   />
                 </div>
               </div>

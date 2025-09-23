@@ -9,7 +9,9 @@ import SquareButton from "../components/ui/SquareButton";
 import { data } from "react-router-dom";
 
 export default function Form({ modelId }) {
-  const [currentStep, setCurrentStep] = useState(modelId === "sportage" ? 3 : 2);
+  const [currentStep, setCurrentStep] = useState(
+    modelId === "sportage" ? 3 : 2
+  );
   const [model, setModel] = useState(autos.find((auto) => auto.id === modelId));
   const [currentColor, setCurrentColor] = useState(model.colors[0]);
   const [isCompleted, setIsCompleted] = useState(false);
@@ -17,7 +19,6 @@ export default function Form({ modelId }) {
   const [step2Data, setStep2Data] = useState({});
   const [step4Data, setStep4Data] = useState({});
   const [step5Data, setStep5Data] = useState({});
-
 
   useEffect(() => {
     setModel(autos.find((auto) => auto.id === modelId));
@@ -48,7 +49,7 @@ export default function Form({ modelId }) {
         apellido: step5Data.apellido,
         email: step5Data.email,
         telefono: step5Data.telefono,
-        concesionario: step5Data.concesionario,
+        provincia: step5Data.provincia,
       },
     };
 
@@ -139,7 +140,10 @@ export default function Form({ modelId }) {
                 />
                 {/* Action Buttons */}
                 <div className="hidden md:flex justify-start gap-2.5 mt-10  items-end">
-                  <SquareButton onClick={handleCancel} type="secondary" disabled={currentStep === 2}>
+                  <SquareButton
+                    onClick={handleCancel}
+                    type="secondary"
+                    disabled={currentStep === 2}>
                     Cancelar
                   </SquareButton>
                   <SquareButton

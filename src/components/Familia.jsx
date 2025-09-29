@@ -24,10 +24,14 @@ const Familia = () => {
 
             <div className="space-y-4 text-gray-700">
               <p className="text-base leading-relaxed">
-                Una silueta elegante y robusta, con parrilla distintiva y faros LED de última generación que le dan carácter único. Cada detalle está pensado para destacar en la ciudad y en la ruta.
+                Una silueta elegante y robusta, con parrilla distintiva y faros
+                LED de última generación que le dan carácter único. Cada detalle
+                está pensado para destacar en la ciudad y en la ruta.
               </p>
               <p className="text-base leading-relaxed font-bold">
-                Elegí la silueta de tu interés, su versión y color y un Concesionario Kia te va a estar brindando más información a la brevedad.
+                Elegí la silueta de tu interés, su versión y color y un
+                Concesionario Kia te va a estar brindando más información a la
+                brevedad.
               </p>
             </div>
           </div>
@@ -35,7 +39,9 @@ const Familia = () => {
           {/* Right Content - Vehicle Cards */}
           <div className="grid grid-cols-1 md:grid-cols-1 gap-6 m-auto">
             {autos.map((vehiculo, index) => (
-              <div key={index} className="text-center rounded-lg p-2 md:p-6 max-w-80">
+              <div
+                key={index}
+                className="text-center rounded-lg p-2 md:p-6 max-w-80">
                 {/* Vehicle Image */}
                 <div className="mb-4">
                   <img
@@ -57,7 +63,7 @@ const Familia = () => {
                 <div className="w-full flex justify-center">
                   <PillButton
                     onClick={() => handleConsultarPrecios(vehiculo.id)}
-                    title="Consultar precios"
+                    title="Quiero mi Sportage"
                     type="primary"
                     size="medium"
                     className="w-full md:w-fit"

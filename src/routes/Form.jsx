@@ -19,6 +19,7 @@ export default function Form({ modelId }) {
   const [step2Data, setStep2Data] = useState({});
   const [step4Data, setStep4Data] = useState({});
   const [step5Data, setStep5Data] = useState({});
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   useEffect(() => {
     setModel(autos.find((auto) => auto.id === modelId));
@@ -31,38 +32,62 @@ export default function Form({ modelId }) {
 
   const handleSubmit = async () => {
     const formData = {
-      vehicle: {
-        model: model.modelo,
-        version: step2Data.version,
-        color: currentColor.name,
-        colorId: currentColor.id,
-      },
-      tradeIn: {
-        marca: step4Data.marca,
-        modelo: step4Data.modelo,
-        año: step4Data.año,
-        kilometraje: step4Data.kilometraje,
-        estado: step4Data.estado,
-      },
-      contact: {
-        nombre: step5Data.nombre,
-        apellido: step5Data.apellido,
-        email: step5Data.email,
-        telefono: step5Data.telefono,
-        provincia: step5Data.provincia,
+      nombre: step5Data.nombre ?? "",
+      apellido: step5Data.apellido ?? "",
+      fecha_nacimiento: new Date().toISOString().split("T")[0],
+      celular: step5Data.telefono ?? "",
+      mail: step5Data.email ?? "",
+      ubicacion: step5Data.provinciaNombre ?? "",
+      newsletter: 0,
+      contacto: 1,
+      origen: "Sportage-Website",
+      tipoLanding: "modelo",
+      modeloAuto: "Sportage",
+
+      informacionExtra: {
+        entregaAuto: step4Data.modelo ? "si" : "no",
+        marcaAuto: step4Data.marca ?? "",
+        modeloAuto: step4Data.modelo ?? "",
+        anioAuto: Number(step4Data.año) ?? 0,
+        kilometrajeAutoEntrega: step4Data.kilometraje ?? "",
+        estadoAutoEntrega: step4Data.estado ?? "",
+        preferenciaColorKia: [
+          model?.modelo,
+          step2Data?.version,
+          currentColor?.name,
+        ]
+          .filter(Boolean)
+          .join(" "),
       },
     };
 
     try {
-      console.log(
-        "Sending data to API (json):",
-        JSON.stringify(formData, null, 2)
+      setIsSubmitting(true);
+      const response = await fetch(
+        "https://fusio.encender-dev.online/public/kia/lead-reserva",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData),
+        }
       );
+
+      if (!response.ok) {
+        console.log(response);
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
+      const result = await response.json();
+      console.log("API response:", result);
 
       setName(step5Data.nombre);
       setIsCompleted(true);
     } catch (error) {
       console.error("Error submitting form:", error);
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -89,7 +114,7 @@ export default function Form({ modelId }) {
           step5Data.apellido &&
           step5Data.email &&
           step5Data.telefono &&
-          step5Data.concesionario &&
+          step5Data.provincia &&
           step5Data.checkbox
         );
       default:
@@ -147,7 +172,7 @@ export default function Form({ modelId }) {
                     Cancelar
                   </SquareButton>
                   <SquareButton
-                    disabled={!isValid()}
+                    disabled={!isValid() || isSubmitting}
                     onClick={
                       currentStep === 5
                         ? handleSubmit
@@ -171,7 +196,7 @@ export default function Form({ modelId }) {
                     Cancelar
                   </SquareButton>
                   <SquareButton
-                    disabled={!isValid()}
+                    disabled={!isValid() || isSubmitting}
                     onClick={
                       currentStep === 5
                         ? handleSubmit

@@ -308,6 +308,7 @@ const Step = ({
                       setStep5Data({
                         ...step5Data,
                         provincia: e.target.value,
+                        provinciaNombre: e.target.label,
                       })
                     }
                     options={provincias}
